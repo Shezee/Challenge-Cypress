@@ -21,10 +21,12 @@ describe('IMDb Search', ()=>
         .invoke('text')
         .as('movieName')
 
+
       cy
         .get('li#react-autowhatever-1--item-0 a div:nth-child(2) div:nth-child(2)')
         .invoke('text')
         .as('movieYear')
+      
 
       cy
         .get('#react-autowhatever-1--item-0')
@@ -32,11 +34,12 @@ describe('IMDb Search', ()=>
 
     });
 
-    it('Verify Movie Title', () =>  
+    it('Verify Movie Title', function()  
     {
 
         cy
-        .get('div.title_wrapper h1').invoke('text')
+        .get('div.title_wrapper h1')
+        .invoke('text')
         .should('contains',this.movieName)
         .and('contains',this.movieYear)
 
